@@ -1,8 +1,15 @@
+// React
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
+// Application
 import App from './App';
+
+// Service Worker
 import * as serviceWorker from './serviceWorker';
+
+// Styles
+import './styles/tailwind.css';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "react",
+    "owner": {
+      "avatar": "https://avatars2.githubusercontent.com/u/69631?s=200&v=4",
+      "id": 1,
+      "name": "@facebook"
+    },
+    "stars": 151597,
+    "url": "https://github.com/facebook/react"
+  },
+  {
+    "id": 2,
+    "name": "vue",
+    "owner": {
+      "avatar": "https://avatars3.githubusercontent.com/u/6128107?s=200&v=4",
+      "id": 2,
+      "name": "@vuejs"
+    },
+    "stars": 167326,
+    "url": "https://github.com/vuejs/vue"
+  },
+  {
+    "id": 3,
+    "name": "tailwindcss",
+    "owner": {
+      "avatar": "https://avatars0.githubusercontent.com/u/30317862?s=200&v=4",
+      "id": 3,
+      "name": "@tailwindcss"
+    },
+    "stars": 24800,
+    "url": "https://github.com/tailwindcss/tailwindcss"
+  }
+]
