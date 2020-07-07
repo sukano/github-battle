@@ -1,8 +1,9 @@
 import React from 'react'
 
-import axios from 'axios'
-
 import { Alert, FilterList, Loader, RepositoryList } from '../components'
+
+// Utils
+import { searchRepositories } from '../utils/github'
 
 import languages from '../assets/languages.json'
 
@@ -21,8 +22,7 @@ export default class Popular extends React.Component {
   fetchRepositories () {
     this.setState({ error: false, loading: true })
 
-    axios
-      .get(`https://api.github.com/search/repositories?q=stars:>1+language:${this.state.activeLanguage.toLowerCase()}&sort=stars&order=desc&type=Repositories`)
+    searchRepositories(`stars:>1+language:${this.state.activeLanguage.toLowerCase()}`)
       .then((response) => {
         this.setState({ repositories: response.data.items })
       })
