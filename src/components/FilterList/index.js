@@ -13,7 +13,7 @@ export default class FilterList extends Component {
     languages.sort((a, b) => a.localeCompare(b))
 
     return (
-      <ul className="flex justify-center my-4 space-x-2">
+      <ul className="flex justify-center mb-6 space-x-2">
         <Filter
           enabled={activeFilter === 'All'}
           name="All"

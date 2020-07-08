@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { Alert, FilterList, Loader, RepositoryList } from '../components'
+import { Alert, FilterList, Loader, RepositoryList } from '../../components'
 
 // Utils
-import { searchRepositories } from '../utils/github'
+import { searchRepositories } from '../../utils/github'
 
-import languages from '../assets/languages.json'
+import languages from '../../assets/languages.json'
 
 export default class Popular extends React.Component {
   constructor (props) {

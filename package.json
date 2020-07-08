@@ -11,12 +11,13 @@
     "postcss-cli": "^7.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:style":"tailwind build src/index.css -o src/styles/tailwind.css",
+    "build:style": "tailwind build src/index.css -o src/styles/tailwind.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
