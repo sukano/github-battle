@@ -1,22 +1,17 @@
 // React
-import React, { useState } from 'react'
+import React from 'react'
+
+// Redux
+import { connect } from 'react-redux'
+
+// Actions
+import { setPlayer, resetPlayer } from '../../actions'
 
 // Components
 import { Button, Player, PlayerForm } from '../../components'
 
-// Utils
-import { getUser } from '../../utils/github'
-
-const Battle = () => {
-  const [player1, setPlayer1] = useState()
-  const [player2, setPlayer2] = useState()
-
-  const fetchUser = (username, callback) => {
-    getUser(username)
-      .then((response) => {
-        callback(response.data)
-      })
-  }
+const Battle = ({ players, reset, set }) => {
+  const { 1: player1, 2: player2 } = players
 
   return (
     <div>
@@ -25,10 +20,10 @@ const Battle = () => {
           {player1 ? (
             <div className="text-center">
               <Player data={player1} />
-              <button className="mt-4 text-red-700" onClick={() => setPlayer1()}>Reset</button>
+              <button className="mt-4 text-red-700" onClick={() => reset(1)}>Reset</button>
             </div>
           ) : (
-            <PlayerForm onSubmit={(values) => fetchUser(values.username, setPlayer1)} title="Player One" />
+            <PlayerForm onSubmit={(values) => set(1, values.username)} title="Player One" />
           )}
         </div>
 
@@ -36,10 +31,10 @@ const Battle = () => {
           {player2 ? (
             <div className="text-center">
               <Player data={player2} />
-              <button className="mt-4 text-red-700" onClick={() => setPlayer2()}>Reset</button>
+              <button className="mt-4 text-red-700" onClick={() => reset(2)}>Reset</button>
             </div>
           ) : (
-            <PlayerForm onSubmit={(values) => fetchUser(values.username, setPlayer2)} title="Player Two" />
+            <PlayerForm onSubmit={(values) => set(2, values.username)} title="Player Two" />
           )}
         </div>
       </div>
@@ -55,4 +50,17 @@ const Battle = () => {
   )
 }
 
-export default Battle
+const mapStateToProps = (state) => ({
+  players: state.players
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  reset: (position) => {
+    dispatch(resetPlayer(position))
+  },
+  set: (position, username) => {
+    dispatch(setPlayer(position, username))
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Battle)
